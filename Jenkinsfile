@@ -38,7 +38,7 @@ node {
 	  
 	  sh "docker rm devopsexample"
 	  
-	  sh "docker run --name devopsexample -d -p 2222:2222 devopsexample:lattest"
+	  sh "docker run --name devopsexample -d -p 2222:2222 devopsexample:latest"
 	  
 	  // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
       //    dockerImage.push("${env.BUILD_NUMBER}")
