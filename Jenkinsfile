@@ -27,25 +27,17 @@ node {
       // build docker image
       dockerImage = docker.build("devopsexample:${env.BUILD_NUMBER}")
     }
-   
-    stage('Deploy Docker Image'){
+   	  
+    stage('Deploy Docker Image and login'){
       
-      // deploy docker image to nexus
-		
       echo "Docker Image Tag Name: ${dockerImageTag}"
 	  
-	//  sh "docker stop devopsexample"
-	  
-	//  sh "docker rm devopsexample"
-	  
-	//  sh "docker run --name devopsexample -d -p 2222:2222 devopsexample:${env.BUILD_NUMBER}"
-	  
-	  // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-       //   dockerImage.push("${env.BUILD_NUMBER}")
-         //   dockerImage.push("latest")
-	  //  sh "docker tag 
-	    
-      //  }
-      
-    }
+        sh "docker images"
+        sh "docker login -u vikas4cloud -p Handsome@4u"
+}
+    stage('Docker push'){
+        
+        sh "docker tag 3d4a9d8e2e0b   vikas4cloud/myapplication" //must change the name
+        sh "docker push   vikas4cloud/myapplication"
+  }
 }
