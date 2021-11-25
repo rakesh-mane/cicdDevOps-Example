@@ -34,11 +34,11 @@ node {
 		
       echo "Docker Image Tag Name: ${dockerImageTag}"
 	  
-	  sh "docker stop devopsexample"
+	  sh "docker stop devopsexample5"
 	  
-	  sh "docker rm devopsexample"
+	  sh "docker rm devopsexample5"
 	  
-	  sh "docker run --name devopsexample -d -p 2222:2222 devopsexample:${env.BUILD_NUMBER}"
+	  sh "docker run --name devopsexample5 -d -p 2222:2222 devopsexample:${env.BUILD_NUMBER}"
 	  
 	  // docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
       //    dockerImage.push("${env.BUILD_NUMBER}")
