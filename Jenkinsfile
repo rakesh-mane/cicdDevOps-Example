@@ -11,7 +11,7 @@ node {
     
     stage('Clone Repo') { // for display purposes
       // Get some code from a GitHub repository
-      git 'https://github.com/vikas4cloud/DevOps-Example.git'
+      git 'https://github.com/rakesh-mane/cicdDevOps-Example'
       // Get the Maven tool.
       // ** NOTE: This 'maven-3.5.2' Maven tool must be configured
       // **       in the global configuration.           
@@ -25,7 +25,7 @@ node {
 		
     stage('Build Docker Image') {
       // build docker image
-      dockerImage = docker.build("devopsexample:${env.BUILD_NUMBER}")
+      dockerImage = docker.build("rockybuild:${env.BUILD_NUMBER}")
     }
    	  
     stage('Deploy Docker Image and login'){
@@ -38,6 +38,6 @@ node {
     stage('Docker push'){
         
         sh "docker tag 2c90e7efdeba rakeshmane981/myapplication" //must change the name
-        sh "docker push vickeyyvickey/myapplication"
+        sh "docker push rakeshmane981/myapplication"
   }
 }
