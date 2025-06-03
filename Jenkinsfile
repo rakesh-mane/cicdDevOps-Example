@@ -7,7 +7,7 @@ node {
     def dockerImage
     // ip address of the docker private repository(nexus)
  
-    def dockerImageTag = "devopsexample${env.BUILD_NUMBER}"
+    def dockerImageTag = "rockybuild${env.BUILD_NUMBER}"
     
     stage('Clone Repo') { // for display purposes
       // Get some code from a GitHub repository
@@ -33,7 +33,7 @@ node {
       echo "Docker Image Tag Name: ${dockerImageTag}"
 	  
         sh "docker images"
-        sh "docker login -u rakeshmane981 "
+        sh "docker login -u rakeshmane981 -p rakesh981 "
 }
     stage('Docker push'){
         
